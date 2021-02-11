@@ -12,11 +12,14 @@ namespace ByteBank.Controllers
     {
         public IActionResult Index()
         {
-            ContaCorrente contaDaGabriela = new ContaCorrente() { 
-                Titular = "Gabriela", Agencia = 1653, Numero = 467272
-            };
+            ContaCorrente contaDaGabriela = new ContaCorrente();
 
-            ViewBag.Titular = contaDaGabriela.Titular;
+            var nome = contaDaGabriela.Titular.Nome = "Gabriela";
+            var cpf = contaDaGabriela.Titular.CPF = "33377899865";
+            var profissao = contaDaGabriela.Titular.Profissao = "Desenvolvedora";
+            ViewBag.Titular = nome;
+            ViewBag.Cpf = cpf;
+            ViewBag.Profissao = profissao;
             ViewBag.Agencia = contaDaGabriela.Agencia;
             ViewBag.Numero = contaDaGabriela.Numero;
             ViewBag.Saldo = contaDaGabriela.Saldo;
@@ -24,23 +27,6 @@ namespace ByteBank.Controllers
             ViewBag.Deposito = contaDaGabriela.Depositar(500);
 
             ViewBag.Saldo = contaDaGabriela.Saldo;
-
-
-
-            ContaCorrente contaDoBruno = new ContaCorrente()
-            {
-                Titular = "Bruno",
-                Agencia = 1052,
-                Numero = 856
-            };
-
-            ViewBag.Nome2 = contaDoBruno.Titular;
-            ViewBag.Saldo2 = contaDoBruno.Saldo;
-
-            ViewBag.Transferir =  contaDaGabriela.Transferir(200, contaDoBruno);
-            ViewBag.Saldo2 = contaDoBruno.Saldo;
-
-
 
             return View();
         }
