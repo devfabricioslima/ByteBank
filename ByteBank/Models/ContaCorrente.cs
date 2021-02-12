@@ -6,15 +6,43 @@ using ByteBank.Models;
 
 namespace ByteBank.Models
 {
+    public class Cliente
+    {
+        public string Nome { get; set; }
+        public string CPF { get; set; }
+        public string Profissao { get; set; }
+    }
+
+    public class Agencia
+    {
+        public int NumAgencia { get; set; }
+        public int Conta { get; set; }
+
+        
+    }
     public class ContaCorrente
     {
         public Cliente Titular { get; set; }
-        public int Agencia { get; set; }
-        public int Numero { get; set; }
-        public double Saldo { get; set; } = 100;
+        public Agencia Agencia { get; set; }
+        private double Saldo { get; set; } = 100;
 
-        
 
+
+        public void DefinirSaldo(double saldo)
+        {
+            if (saldo < 0)
+            {
+
+            }
+            else
+            {
+                this.Saldo = saldo;
+            }
+        }
+        public double ObterSaldo()
+        {
+            return this.Saldo;
+        }
 
         public bool Sacar(double valor)
         {

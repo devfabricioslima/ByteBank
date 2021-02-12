@@ -12,23 +12,29 @@ namespace ByteBank.Controllers
     {
         public IActionResult Index()
         {
-            ContaCorrente contaDaGabriela = new ContaCorrente();
+            Cliente gabriela = new Cliente()
+            {
+                Nome = "Gabriela",
+                CPF = "333444663",
+                Profissao = "Desenvolvedora"
+            };
 
-            var nome = contaDaGabriela.Titular.Nome = "Gabriela";
-            var cpf = contaDaGabriela.Titular.CPF = "33377899865";
-            var profissao = contaDaGabriela.Titular.Profissao = "Desenvolvedora";
-            ViewBag.Titular = nome;
-            ViewBag.Cpf = cpf;
-            ViewBag.Profissao = profissao;
-            ViewBag.Agencia = contaDaGabriela.Agencia;
-            ViewBag.Numero = contaDaGabriela.Numero;
-            ViewBag.Saldo = contaDaGabriela.Saldo;
+            Agencia agenciaGabriela = new Agencia()
+            {
+                NumAgencia = 1653,
+                Conta = 467272,
+            };
 
-            ViewBag.Deposito = contaDaGabriela.Depositar(500);
+            ContaCorrente contaGabriela = new ContaCorrente()
+            {
+                Titular = gabriela,
+                Agencia = agenciaGabriela
+            };
 
-            ViewBag.Saldo = contaDaGabriela.Saldo;
+            //ViewData["saldo"] = contaGabriela.ObterSaldo();
+            
 
-            return View();
+            return View(contaGabriela);
         }
 
 
