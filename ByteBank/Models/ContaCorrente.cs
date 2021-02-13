@@ -15,38 +15,66 @@ namespace ByteBank.Models
 
     public class Agencia
     {
-        public int NumAgencia { get; set; }
+        private int _agencia;
         public int Conta { get; set; }
+        public int NumAgencia
+        {
+            get { return _agencia; }
+            set
+            {
+                if (value <= 0)
+                {
+                    return;
+                }
+                else
+                {
+                    _agencia = value;
+                }
+            }
+        }
 
-        
+        public Agencia(int conta, int numAgencia)
+        {
+            Conta = conta;
+            NumAgencia = numAgencia;
+        }
     }
     public class ContaCorrente
     {
+        private double _saldo = 100;
+
+        public static int Id { get; private set; }
         public Cliente Titular { get; set; }
         public Agencia Agencia { get; set; }
-        private double Saldo { get; set; } = 100;
-
-
-
-        public void DefinirSaldo(double saldo)
+        public double Saldo
         {
-            if (saldo < 0)
+            get
+            {
+                return _saldo;
+            }
+            set
             {
 
-            }
-            else
-            {
-                this.Saldo = saldo;
+                if (value < 0)
+                {
+                    return;
+                }
+
+                _saldo = value;
             }
         }
-        public double ObterSaldo()
+
+        public ContaCorrente(Cliente titular, Agencia agencia)
         {
-            return this.Saldo;
+            Titular = titular;
+            Agencia = agencia;
+
+            Id++;
         }
 
         public bool Sacar(double valor)
         {
-            
+
             if (this.Saldo < valor)
             {
                 return false;
@@ -60,7 +88,7 @@ namespace ByteBank.Models
 
         }
 
-        public double Depositar( double valor)
+        public double Depositar(double valor)
         {
             this.Saldo += valor;
 

@@ -19,20 +19,12 @@ namespace ByteBank.Controllers
                 Profissao = "Desenvolvedora"
             };
 
-            Agencia agenciaGabriela = new Agencia()
-            {
-                NumAgencia = 1653,
-                Conta = 467272,
-            };
+            Agencia agenciaGabriela = new Agencia(1653, 467272);
 
-            ContaCorrente contaGabriela = new ContaCorrente()
-            {
-                Titular = gabriela,
-                Agencia = agenciaGabriela
-            };
 
-            //ViewData["saldo"] = contaGabriela.ObterSaldo();
+            ContaCorrente contaGabriela = new ContaCorrente(gabriela, agenciaGabriela);
             
+
 
             return View(contaGabriela);
         }
