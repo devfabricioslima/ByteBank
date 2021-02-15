@@ -1,14 +1,32 @@
-﻿@model ByteBank.Models.ContaCorrente
+﻿@model IEnumerable<ByteBank.Models.ContaCorrente>
 
 
-<h1>Byte Bank</h1>
+@{
+    ViewData["Title"] = "ByteBank";
 
-<h1>Titular: @Model.Titular.Nome</h1>
-<h1>Cpf: @Model.Titular.CPF </h1>
-<h1>Profissao: @Model.Titular.Profissao</h1>
-<h1>Agencia: @Model.Agencia.NumAgencia</h1>
-<h1>Conta: @Model.Agencia.Conta</h1>
-<h1>Saldo: @Model.Saldo</h1>
+}
 
 
+<h1>Clientes</h1>
+<hr />
+
+<a asp-action="cadastrar_clientes">Adiconar Clientes</a>
+
+
+@if (@Model.Count() != 0)
+{
+    
+    @foreach (var item in Model)
+    {
+        
+         
+        <p> Cliente: @item.Titular.Nome | Agência:@item.Agencia.NumAgencia | Conta:@item.Agencia.Conta</p>
+        <p>Saldo:R$@item.Saldo</p>
+
+    }
+}
+else
+{
+    <p>Ainda nã existem clientes cadastrados</p>
+}
 

@@ -1,0 +1,23 @@
+﻿@model ByteBank.Models.ContaCorrente
+@{
+    ViewData["Title"] = "Cliente";
+}
+
+<h2>Cliente</h2>
+
+
+<h3>Nome</h3>
+<h3>@Model.Titular.Nome</h3>
+
+<h3>CPF</h3>
+<h3>@Model.Titular.CPF</h3>
+
+<h3>Profissão</h3>
+<h3>@Model.Titular.Profissao</h3>
+
+<h3>Agencia</h3>
+<h3>@Model.Agencia.NumAgencia</h3>
+
+
+<h3>Conta</h3>
+<h3>@Model.Agencia.Conta</h3>

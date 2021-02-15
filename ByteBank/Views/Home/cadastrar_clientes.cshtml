@@ -1,0 +1,32 @@
+﻿@model ByteBank.Models.ContaCorrente
+
+
+@{
+    ViewData["Title"] = "cadastrar_clientes";
+}
+
+<h2>cadastrar_clientes</h2>
+
+
+<form asp-controller="home" asp-action="cadastrar_clientes" method="post">
+
+    <h3>Titular</h3>
+    <label asp-for="Titular.Nome"> Nome</label><br />
+    <input type="text" asp-for="Titular.Nome" /><br />
+    <label asp-for="Titular.CPF"> CPF</label><br />
+    <input type="text" asp-for="Titular.CPF" /><br />
+    <label asp-for="Titular.Profissao">Profissão</label><br />
+    <input type="text" asp-for="Titular.Profissao" /><br />
+
+    <hr />
+    <h3>Agência</h3>
+
+    <label asp-for="Agencia.NumAgencia"> Ageencia</label><br />
+    <input type="number" asp-for="Agencia.NumAgencia" /><br />
+    <label asp-for="Agencia.Conta">Conta</label><br />
+    <input type="number" asp-for="Agencia.Conta" /><br /><br />
+
+    <button type="submit">enviar</button>
+
+
+</form>

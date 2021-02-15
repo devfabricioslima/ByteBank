@@ -11,6 +11,12 @@ namespace ByteBank.Models
         public string Nome { get; set; }
         public string CPF { get; set; }
         public string Profissao { get; set; }
+
+        //public Cliente(string nome, string cPF)
+        //{
+        //    Nome = nome;
+        //    CPF = cPF;
+        //}
     }
 
     public class Agencia
@@ -33,11 +39,11 @@ namespace ByteBank.Models
             }
         }
 
-        public Agencia(int conta, int numAgencia)
-        {
-            Conta = conta;
-            NumAgencia = numAgencia;
-        }
+        //public Agencia(int conta, int numAgencia)
+        //{
+        //    Conta = conta;
+        //    NumAgencia = numAgencia;
+        //}
     }
     public class ContaCorrente
     {
@@ -64,11 +70,8 @@ namespace ByteBank.Models
             }
         }
 
-        public ContaCorrente(Cliente titular, Agencia agencia)
+        public ContaCorrente()
         {
-            Titular = titular;
-            Agencia = agencia;
-
             Id++;
         }
 
