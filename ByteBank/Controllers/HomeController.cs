@@ -31,6 +31,13 @@ namespace ByteBank.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult Eliminar(int id)
+        {
+            Dados.EliminarConta(id);
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

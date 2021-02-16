@@ -23,9 +23,22 @@ namespace ByteBank.Models
 
         public static void adicionarCliente(ContaCorrente conta)
         {
+            conta.Id = 0;
+
+            if(Lista_Correntes.Count != 0)
+            {
+              conta.Id =  Lista_Correntes.Last<ContaCorrente>().Id +1;
+            }
+
             Lista_Correntes.Add(conta);
         }
 
+        public static void EliminarConta(int id)
+        {
+            var item = Lista_Correntes.First<ContaCorrente>(i => i.Id == id);
+
+            Lista_Correntes.Remove(item);
+        }
 
 
     }

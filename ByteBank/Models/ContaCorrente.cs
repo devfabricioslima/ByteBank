@@ -49,7 +49,7 @@ namespace ByteBank.Models
     {
         private double _saldo = 100;
 
-        public static int Id { get; private set; }
+        public int Id { get; set; }
         public Cliente Titular { get; set; }
         public Agencia Agencia { get; set; }
         public double Saldo
@@ -70,10 +70,10 @@ namespace ByteBank.Models
             }
         }
 
-        public ContaCorrente()
-        {
-            Id++;
-        }
+        //public ContaCorrente()
+        //{
+        //    Id++;
+        //}
 
         public bool Sacar(double valor)
         {
