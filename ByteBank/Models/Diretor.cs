@@ -10,7 +10,7 @@ namespace ByteBank.Models
         
         public override double GetBonificacao()
         {
-            return this.Salario;
+            return this.Salario + base.GetBonificacao();
         }
     }
 }

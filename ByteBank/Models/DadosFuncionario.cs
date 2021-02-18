@@ -9,10 +9,18 @@ namespace ByteBank.Models
     {
         private static List<Funcionario> Lista_Funcionarios = new List<Funcionario>();
 
+        public static IEnumerable<Funcionario> TodosFuncionarios
+        {
+            get
+            {
+                return Lista_Funcionarios;
+            }
+        }
+
         public static void CadastrarFuncionario(Funcionario funcionario)
         {
             funcionario.Id = 0;
-            if(Lista_Funcionarios.Count != 0)
+            if (Lista_Funcionarios.Count != 0)
             {
                 funcionario.Id = Lista_Funcionarios.Last<Funcionario>().Id + 1;
             }
