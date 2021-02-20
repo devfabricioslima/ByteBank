@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ByteBank.Models.Funcionario>
+@{
+    ViewData["Title"] = "Designers";
+}
+
+<h2>Designers</h2>
+
+@if (Model.Count() != 0)
+{
+    <a class="btn btn-dark" asp-action="Cadastrar">Cadastrar Novo Designer</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cpf</th>
+                <th scope="col">Salário</th>
+                <th scope="col">Cargo</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Nome</td>
+                <td>@item.CPF</td>
+                <td>R$ @item.Salario</td>
+                <td>R$ @item.Cargo</td>
+                <td><a class="btn" asp-action="Remover" asp-route-id="@item.Id">Remover</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p>Não existem Designers Cadastrados</p>
+    <a class="btn btn-dark" asp-action="Cadastrar">Cadastrar Designer</a>
+}

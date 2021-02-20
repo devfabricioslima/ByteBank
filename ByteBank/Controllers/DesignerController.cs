@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Controllers
 {
-    public class DiretorController : Controller
+    public class DesignerController : Controller
     {
         [HttpGet]
-        public IActionResult Diretores()
+        public IActionResult Designers()
         {
             return View(DadosFuncionario.TodosFuncionarios);
         }
@@ -22,17 +22,16 @@ namespace ByteBank.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Diretor diretor)
+        public IActionResult Cadastrar(Designer designer)
         {
-            DadosFuncionario.CadastrarFuncionario(diretor);
-
+            DadosFuncionario.CadastrarFuncionario(designer);
             return View();
         }
 
         public IActionResult Remover(int id)
         {
             DadosFuncionario.DeletarFuncinario(id);
-            return View();
+            return RedirectToAction("Designers", DadosFuncionario.TodosFuncionarios);
         }
     }
 }

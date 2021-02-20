@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Models
 {
-    public class DadosFuncionario
+    public static class DadosFuncionario
     {
         private static List<Funcionario> Lista_Funcionarios = new List<Funcionario>();
 
@@ -37,3 +37,4 @@ namespace ByteBank.Models
         }
     }
 }
+

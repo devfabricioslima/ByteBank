@@ -19,6 +19,18 @@ namespace ByteBank.Controllers
         }
 
         [HttpGet]
+        public IActionResult Funcionarios()
+        {
+            return View(DadosFuncionario.TodosFuncionarios);
+        }
+
+        public IActionResult Remover(int id)
+        {
+            DadosFuncionario.DeletarFuncinario(id);
+            return View("Funcionarios", DadosFuncionario.TodosFuncionarios);
+        }
+
+        [HttpGet]
         public IActionResult cadastrar_clientes()
         {
             return View();

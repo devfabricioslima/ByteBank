@@ -1,0 +1,28 @@
+﻿@model ByteBank.Models.Diretor
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+
+<form asp-controller="Diretor" asp-action="Cadastrar" method="post">
+    <div class="mb-3">
+        <label asp-for="@Model.Nome" class="form-label">Nome</label>
+        <input asp-for="@Model.Nome" type="text" class="form-control" placeholder="Nome">
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.CPF" class="form-label">CPF</label>
+        <input asp-for="@Model.CPF" type="text" class="form-control" placeholder="CPF">
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Salario" class="form-label">Salário</label>
+        <input asp-for="@Model.Salario" type="text" class="form-control" placeholder="R$:0,00">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-dark">Cadastrar</button>
+    </div>
+</form>
+
+@*<a asp-action="Diretores">Diretores Cadastrados</a>*@
+<a asp-controller="Home" asp-action="Funcionarios">Funcionários Cadastrados</a>
