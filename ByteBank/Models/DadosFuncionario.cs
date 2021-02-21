@@ -17,6 +17,16 @@ namespace ByteBank.Models
             }
         }
 
+        public static List<Funcionario> ListaCargos = new List<Funcionario>();
+
+        public static IEnumerable<Funcionario> TodosCargo
+        {
+            get
+            {
+                return ListaCargos;
+            }
+        }
+
         public static void CadastrarFuncionario(Funcionario funcionario)
         {
             funcionario.Id = 0;
@@ -35,6 +45,18 @@ namespace ByteBank.Models
 
             Lista_Funcionarios.Remove(item);
         }
+
+        //public static void FuncionarioCargo(string cargo)
+        //{
+            
+
+        //    if (ListaCargos.Count !=0)
+        //    {
+        //       var item = Lista_Funcionarios.Select<>(i => i.Cargo == cargo);
+        //        ListaCargos.Add(item);
+        //    }
+
+        //}
     }
 }
 

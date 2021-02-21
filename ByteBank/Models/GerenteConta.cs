@@ -5,23 +5,22 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Models
 {
-    public class Diretor:FuncionarioAutenticavel
+    public class GerenteConta:FuncionarioAutenticavel
     {
-        public Diretor()
+        public GerenteConta()
         {
-            this.Cargo = "Diretor";
+            this.Cargo = "Gerente de Conta";
         }
 
         public override double GetBonificacao()
         {
-            return this.Salario *= 1.5;
+            return this.Salario *= 1.8;
         }
 
         public override void AumentarSalario()
         {
             //base.AumentarSalario();
-            this.Salario *= 1.5;
+            this.Salario *= 1.8;
         }
-
     }
 }
