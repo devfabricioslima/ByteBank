@@ -10,7 +10,7 @@ namespace ByteBank.Controllers
 {
     public class HomeController : Controller
     {
-        
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -33,13 +33,23 @@ namespace ByteBank.Controllers
         [HttpGet]
         public IActionResult cadastrar_clientes()
         {
+            ViewData["Mensagem"] = "";
             return View();
         }
         [HttpPost]
         public IActionResult cadastrar_clientes(ContaCorrente conta)
         {
+            ViewData["Mensagem"] = "";
+            try
+            {
+                Dados.adicionarCliente(conta);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData["Mensagem"] = ex.Message;
+                return View("cadastrar_clientes");
 
-            Dados.adicionarCliente(conta);
+            }
 
             return RedirectToAction("Index");
         }

@@ -21,23 +21,8 @@ namespace ByteBank.Models
 
     public class Agencia
     {
-        private int _agencia;
         public int Conta { get; set; }
-        public int NumAgencia
-        {
-            get { return _agencia; }
-            set
-            {
-                if (value <= 0)
-                {
-                    return;
-                }
-                else
-                {
-                    _agencia = value;
-                }
-            }
-        }
+        public int NumAgencia{ get; set; }
 
         //public Agencia(int conta, int numAgencia)
         //{
@@ -47,11 +32,14 @@ namespace ByteBank.Models
     }
     public class ContaCorrente
     {
+        public double TaxaOperacao { get; set; }
         private double _saldo = 100;
 
         public int Id { get; set; }
         public Cliente Titular { get; set; }
         public Agencia Agencia { get; set; }
+
+        
         public double Saldo
         {
             get
@@ -78,9 +66,13 @@ namespace ByteBank.Models
         public bool Sacar(double valor)
         {
 
+            if (valor < 0)
+            {
+                throw new ArgumentException(" Valor inválido para o saque.", nameof(valor));
+            }
             if (this.Saldo < valor)
             {
-                return false;
+                throw new SaldoInsuficienteException("Saldo Insuficente para o valor de" + valor);
             }
             else
             {
@@ -98,18 +90,15 @@ namespace ByteBank.Models
             return this.Saldo;
         }
 
-        public bool Transferir(double valor, ContaCorrente contaDestino)
+        public void Transferir(double valor, ContaCorrente contaDestino)
         {
-            if (this.Saldo < valor)
+            if (valor < 0)
             {
-                return false;
+                throw new ArgumentException("Valor inválido para tranferencia", nameof(valor));
             }
-            else
-            {
-                this.Saldo -= valor;
-                contaDestino.Depositar(valor);
-                return true;
-            }
+            Sacar(valor);
+            contaDestino.Depositar(valor);
+                
         }
     }
 }

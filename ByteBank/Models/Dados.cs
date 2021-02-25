@@ -24,12 +24,22 @@ namespace ByteBank.Models
         public static void adicionarCliente(ContaCorrente conta)
         {
             conta.Id = 0;
+            if (conta.Agencia.Conta <= 0)
+            {
+                throw new ArgumentException("O argumento conta deve ser maior que 0,", nameof(conta.Agencia.Conta));
+            }
+            if (conta.Agencia.NumAgencia <= 0)
+            {
+                throw new ArgumentException("O argumento agencia deve ser maior que 0,", nameof(conta.Agencia.NumAgencia));
+            }
+            
 
             if(Lista_Correntes.Count != 0)
             {
               conta.Id =  Lista_Correntes.Last<ContaCorrente>().Id +1;
             }
 
+            //conta.TaxaOperacao = 30 / conta.Id;
             Lista_Correntes.Add(conta);
         }
 
