@@ -52,6 +52,7 @@
 
         <p> Cliente: @item.Titular.Nome | Agência:@item.Agencia.NumAgencia | Conta:@item.Agencia.Conta</p>
         <p>Saldo:R$@item.Saldo | <a asp-controller="Home" asp-action="Eliminar" asp-route-id="@item.Id">Eliminar</a></p>
+        <a asp-action="ClienteOperacao" asp-route-id="@item.Id">Sacar</a>
 
     }
 }

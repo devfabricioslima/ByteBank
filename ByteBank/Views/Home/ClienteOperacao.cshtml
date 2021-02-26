@@ -1,0 +1,55 @@
+﻿@model ByteBank.Models.ContaCorrente
+@{
+    ViewData["Title"] = "ClienteOpercao";
+}
+
+<h2>ClienteOpercao</h2>
+
+<h3>Olá @Model.Titular.Nome</h3>
+
+
+<h3>Saldo atual:@Model.Saldo</h3>
+
+<hr />
+
+<h2>Operações Disponiveis</h2>
+
+    <div class="container-fluid">
+        <div class="row">
+            @*<div class="col-6">
+                <form asp-action="Sacar" asp-route-id="@Model.Id" method="post">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://images.unsplash.com/photo-1579227114347-15d08fc37cae?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80" class="card-img-top img-responsive" alt="funcionario">
+                        <div class="card-body">
+                            <h5 class="card-title">@ViewData["Mensagem"]</h5>
+                            <label class="form-label">Valor</label>
+                            <input type="text" class="form-control" asp-for="@Model.Valor" placeholder="R$:0,00">
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Sacar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>*@
+
+            <div class="col-6">
+                <form asp-action="Depositar" asp-route-id="@Model.Id" method="post">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://images.unsplash.com/photo-1459257831348-f0cdd359235f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80" class="card-img-top img-responsive" alt="funcionario">
+                        <div class="card-body">
+                            <h5 class="card-title">@ViewData["Mensagem"]</h5>
+                            <label class="form-label">Valor</label>
+                            <input type="text" class="form-control" asp-for="@Model.Valor" placeholder="R$:0,00">
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Depositar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>

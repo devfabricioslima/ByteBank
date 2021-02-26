@@ -33,37 +33,21 @@ namespace ByteBank.Models
     public class ContaCorrente
     {
         public double TaxaOperacao { get; set; }
-        private double _saldo = 100;
 
         public int Id { get; set; }
         public Cliente Titular { get; set; }
         public Agencia Agencia { get; set; }
+        public double Valor { get; set; }
 
-        
-        public double Saldo
-        {
-            get
-            {
-                return _saldo;
-            }
-            set
-            {
 
-                if (value < 0)
-                {
-                    return;
-                }
-
-                _saldo = value;
-            }
-        }
+        public double Saldo { get; set; }
 
         //public ContaCorrente()
         //{
         //    Id++;
         //}
 
-        public bool Sacar(double valor)
+        public double Sacar(double valor)
         {
 
             if (valor < 0)
@@ -78,7 +62,7 @@ namespace ByteBank.Models
             {
                 this.Saldo -= valor;
 
-                return true;
+                return Saldo;
             }
 
         }

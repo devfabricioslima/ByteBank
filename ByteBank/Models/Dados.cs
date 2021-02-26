@@ -50,6 +50,19 @@ namespace ByteBank.Models
             Lista_Correntes.Remove(item);
         }
 
+        public static ContaCorrente DadosCliente(int id)
+        {
+            var conta = Lista_Correntes.Where(i => i.Id == id).FirstOrDefault();
+
+            return conta;
+        }
+
+        public static void Depositar(int id, double valor)
+        {
+            var conta = DadosCliente(id);
+            conta.Depositar(valor);    
+        }
+
 
     }
 }
