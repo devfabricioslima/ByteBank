@@ -63,6 +63,12 @@ namespace ByteBank.Models
             conta.Depositar(valor);    
         }
 
+        public static void Sacar(int id, double valor)
+        {
+            var conta = DadosCliente(id);
+            conta.Sacar(valor);
+        }
+
 
     }
 }

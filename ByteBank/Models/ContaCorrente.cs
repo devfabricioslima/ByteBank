@@ -39,6 +39,9 @@ namespace ByteBank.Models
         public Agencia Agencia { get; set; }
         public double Valor { get; set; }
 
+        public int ContadorSaqueNaoPermitidos { get; private set; }
+        public int ContadorTransferenciasNaoPermitidos { get; private set; }
+
 
         public double Saldo { get; set; }
 
@@ -56,6 +59,7 @@ namespace ByteBank.Models
             }
             if (this.Saldo < valor)
             {
+                ContadorSaqueNaoPermitidos++;
                 throw new SaldoInsuficienteException("Saldo Insuficente para o valor de" + valor);
             }
             else
@@ -80,7 +84,16 @@ namespace ByteBank.Models
             {
                 throw new ArgumentException("Valor inválido para tranferencia", nameof(valor));
             }
-            Sacar(valor);
+            try
+            {
+
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                Sacar(valor);
+                ContadorTransferenciasNaoPermitidos++;
+                throw new OperacaoFinanceriaException("Operação não realizada", ex);
+            }
             contaDestino.Depositar(valor);
                 
         }

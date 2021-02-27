@@ -68,25 +68,30 @@ namespace ByteBank.Controllers
             return View(Dados.DadosCliente(id));
         }
 
-
-        [HttpPost]
-        public IActionResult Sacar(ContaCorrente conta, int id)
-        {
-
-            //ViewData["Valor"] = 0;
-            conta.Sacar(conta.Valor);
-            conta.Sacar(conta.Valor);
-
-
-            return View("ClienteOperacao",Dados.DadosCliente(id) );
-        }
-
         [HttpPost]
         public IActionResult Depositar(ContaCorrente conta, int id)
         {
 
             //ViewData["Valor"] = 0;
             Dados.Depositar(id, conta.Valor);   
+
+            return View("ClienteOperacao", Dados.DadosCliente(id));
+        }
+
+        [HttpPost]
+        public IActionResult Sacar(ContaCorrente conta, int id)
+        {
+
+            try
+            {
+                Dados.Sacar(id, conta.Valor);
+
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                ViewData["Mensagem"] = ex.Message;
+                return View("ClienteOperacao", Dados.DadosCliente(id));
+            }
 
             return View("ClienteOperacao", Dados.DadosCliente(id));
         }

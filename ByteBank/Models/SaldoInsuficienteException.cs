@@ -24,5 +24,10 @@ namespace ByteBank.Models
         {
 
         }
+
+        public SaldoInsuficienteException(string mensagem, Exception excecaoInterna ) : base(mensagem, excecaoInterna)
+        {
+
+        }
     }
 }
