@@ -10,9 +10,9 @@ namespace ByteBank.Controllers
     public class DesignerController : Controller
     {
         [HttpGet]
-        public IActionResult Designers()
+        public IActionResult Designers(string cargo)
         {
-            return View(DadosFuncionario.TodosFuncionarios);
+            return View(DadosFuncionario.TodosCargo(cargo));
         }
 
         [HttpGet]
@@ -31,7 +31,7 @@ namespace ByteBank.Controllers
         public IActionResult Remover(int id)
         {
             DadosFuncionario.DeletarFuncinario(id);
-            return RedirectToAction("Designers", DadosFuncionario.TodosFuncionarios);
+            return RedirectToAction("Designers", DadosFuncionario.TodosFuncionarios());
         }
     }
 }

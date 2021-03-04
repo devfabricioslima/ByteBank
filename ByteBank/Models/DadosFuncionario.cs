@@ -9,22 +9,17 @@ namespace ByteBank.Models
     {
         private static List<Funcionario> Lista_Funcionarios = new List<Funcionario>();
 
-        public static IEnumerable<Funcionario> TodosFuncionarios
+        public static IOrderedEnumerable<Funcionario> TodosFuncionarios()
         {
-            get
-            {
-                return Lista_Funcionarios;
-            }
+            var funcionarios = Lista_Funcionarios.OrderBy(f => f.Cargo);
+            return funcionarios;
         }
 
-        public static List<Funcionario> ListaCargos = new List<Funcionario>();
 
-        public static IEnumerable<Funcionario> TodosCargo
+        public static IEnumerable<Funcionario> TodosCargo(string cargo)
         {
-            get
-            {
-                return ListaCargos;
-            }
+            var designers = Lista_Funcionarios.Where(d => d.Cargo == cargo);
+            return designers;
         }
 
         public static void CadastrarFuncionario(Funcionario funcionario)
@@ -48,7 +43,7 @@ namespace ByteBank.Models
 
         //public static void FuncionarioCargo(string cargo)
         //{
-            
+
 
         //    if (ListaCargos.Count !=0)
         //    {

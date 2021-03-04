@@ -12,7 +12,7 @@ namespace ByteBank.Controllers
         [HttpGet]
         public IActionResult Diretores()
         {
-            return View(DadosFuncionario.TodosFuncionarios);
+            return View(DadosFuncionario.TodosFuncionarios());
         }
 
         [HttpGet]
