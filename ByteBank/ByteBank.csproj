@@ -22,7 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="Views\Funcionario\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ByteBank.Models\ByteBank.Models.csproj" />
   </ItemGroup>
 
 </Project>

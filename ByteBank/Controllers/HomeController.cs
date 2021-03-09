@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ByteBank.Extensoes;
+
 
 namespace ByteBank.Controllers
 {
@@ -14,6 +16,7 @@ namespace ByteBank.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            LerDados.LerStream();
 
             return View(Dados.Todos_Correntes);
         }
