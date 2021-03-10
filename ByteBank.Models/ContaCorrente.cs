@@ -6,6 +6,7 @@ using ByteBank.Models;
 
 namespace ByteBank.Models
 {
+    
     public class Cliente
     {
         public string Nome { get; set; }
@@ -30,6 +31,10 @@ namespace ByteBank.Models
         //    NumAgencia = numAgencia;
         //}
     }
+
+    /// <summary>
+    /// Define uma Conta Corrente do banco ByteBank. 
+    /// </summary>
     public class ContaCorrente
     {
         public double TaxaOperacao { get; set; }
@@ -50,6 +55,11 @@ namespace ByteBank.Models
         //    Id++;
         //}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="valor"> O <paramref name="valor"/> informado deve ser maior que 0 e menor que o <see cref="Saldo" /> da conta</param>
+        /// <returns>Retorna o saldo menos o valor sacado</returns>
         public double Sacar(double valor)
         {
 
